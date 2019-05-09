@@ -1,0 +1,24 @@
+Options +FollowSymlinks
+RewriteEngine on
+ 
+#如果是一个目录或者文件,就访问目录或文件
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#如果文件存在,就直接访问文件,不进行下面的RewriteRule
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule . index.php
+
+
+#http://www.cnblogs.com/dcb3688/p/4607968.html
+#http://www.yii-china.com/post/detail/182.html
+
+#Nginx
+#location / {
+#	root   F:/www/new/web;
+#	index  index.html index.htm index.php;
+#	#autoindex on;
+#	 if (!-e $request_filename){
+#		rewrite ^/(.*) /index.php?r=$1 last;
+#	}
+#}
